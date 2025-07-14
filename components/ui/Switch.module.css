@@ -1,0 +1,36 @@
+.switch {
+  peer: peer;
+  inline-flex: inline-flex;
+  h-6: h-6;
+  w-11: w-11;
+  shrink-0: shrink-0;
+  cursor-pointer: cursor-pointer;
+  items-center: items-center;
+  rounded-full: rounded-full;
+  border-2: border-2;
+  border-transparent: border-transparent;
+  transition-colors: transition-colors;
+  focus-visible:outline-none;
+  focus-visible:ring-2;
+  focus-visible:ring-ring;
+  focus-visible:ring-offset-2;
+  focus-visible:ring-offset-background;
+  disabled:cursor-not-allowed;
+  disabled:opacity-50;
+  data-[state=checked]:bg-primary;
+  data-[state=unchecked]:bg-input;
+}
+
+.switchThumb {
+  pointer-events: pointer-events;
+  block: block;
+  h-5: h-5;
+  w-5: w-5;
+  rounded-full: rounded-full;
+  bg-background: bg-background;
+  shadow-lg: shadow-lg;
+  ring-0: ring-0;
+  transition-transform: transition-transform;
+  data-[state=checked]:translate-x-5;
+  data-[state=unchecked]:translate-x-0;
+} 

@@ -1,0 +1,299 @@
+.selectTrigger {
+  display: flex;
+  height: 2.5rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.375rem;
+  border: 1px solid hsl(var(--input));
+  background-color: hsl(var(--background));
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  ring-offset-background: ring-offset-background;
+  placeholder-color: hsl(var(--muted-foreground));
+}
+
+.selectTrigger:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: hsl(var(--ring));
+  ring-offset: 2px;
+}
+
+.selectTrigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.selectTrigger > span {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.chevronDown {
+  height: 1rem;
+  width: 1rem;
+  opacity: 0.5;
+}
+
+.selectScrollUpButton {
+  display: flex;
+  cursor: default;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0;
+}
+
+.selectScrollDownButton {
+  display: flex;
+  cursor: default;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0;
+}
+
+.chevronUp {
+  height: 1rem;
+  width: 1rem;
+}
+
+.selectContent {
+  position: relative;
+  z-index: 50;
+  max-height: 24rem;
+  min-width: 8rem;
+  overflow: hidden;
+  border-radius: 0.375rem;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.selectContent[data-state="open"] {
+  animation: select-in 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.selectContent[data-state="closed"] {
+  animation: select-out 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.selectContent[data-state="closed"] {
+  animation-fill-mode: forwards;
+  animation-name: fade-out-0;
+}
+
+.selectContent[data-state="open"] {
+  animation-fill-mode: forwards;
+  animation-name: fade-in-0;
+}
+
+.selectContent[data-state="closed"] {
+  animation-fill-mode: forwards;
+  animation-name: zoom-out-95;
+}
+
+.selectContent[data-state="open"] {
+  animation-fill-mode: forwards;
+  animation-name: zoom-in-95;
+}
+
+.selectContent[data-side="bottom"] {
+  animation-fill-mode: forwards;
+  animation-name: slide-in-from-top-2;
+}
+
+.selectContent[data-side="left"] {
+  animation-fill-mode: forwards;
+  animation-name: slide-in-from-right-2;
+}
+
+.selectContent[data-side="right"] {
+  animation-fill-mode: forwards;
+  animation-name: slide-in-from-left-2;
+}
+
+.selectContent[data-side="top"] {
+  animation-fill-mode: forwards;
+  animation-name: slide-in-from-bottom-2;
+}
+
+.selectContent[data-side="bottom"][data-popper] {
+  transform: translateY(0.25rem);
+}
+
+.selectContent[data-side="left"][data-popper] {
+  transform: translateX(-0.25rem);
+}
+
+.selectContent[data-side="right"][data-popper] {
+  transform: translateX(0.25rem);
+}
+
+.selectContent[data-side="top"][data-popper] {
+  transform: translateY(-0.25rem);
+}
+
+.selectViewport {
+  padding: 0.25rem;
+}
+
+.selectViewportPopper {
+  height: var(--radix-select-trigger-height);
+  width: 100%;
+  min-width: var(--radix-select-trigger-width);
+}
+
+.selectLabel {
+  padding: 0.375rem 0 0.375rem 2rem;
+  padding-right: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.selectItem {
+  position: relative;
+  display: flex;
+  width: 100%;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  border-radius: 0.125rem;
+  padding: 0.375rem 0 0.375rem 2rem;
+  padding-right: 0.5rem;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.selectItem:focus {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.selectItem[data-disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.selectItemIndicator {
+  position: absolute;
+  left: 0.5rem;
+  display: flex;
+  height: 0.875rem;
+  width: 0.875rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.check {
+  height: 1rem;
+  width: 1rem;
+}
+
+.selectSeparator {
+  margin: 0.25rem -0.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  height: 1px;
+  background-color: hsl(var(--muted));
+}
+
+@keyframes select-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes select-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes fade-out-0 {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-0 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-out-95 {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes zoom-in-95 {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-from-top-2 {
+  from {
+    transform: translateY(-0.5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-right-2 {
+  from {
+    transform: translateX(0.5rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-from-left-2 {
+  from {
+    transform: translateX(-0.5rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-from-bottom-2 {
+  from {
+    transform: translateY(0.5rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+} 

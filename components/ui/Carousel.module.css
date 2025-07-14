@@ -1,0 +1,78 @@
+.root {
+  position: relative;
+}
+
+.overflowHidden {
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+}
+
+.horizontal {
+  margin-left: -1rem;
+}
+
+.vertical {
+  margin-top: -1rem;
+  flex-direction: column;
+}
+
+.item {
+  min-width: 0;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 100%;
+}
+
+.itemHorizontal {
+  padding-left: 1rem;
+}
+
+.itemVertical {
+  padding-top: 1rem;
+}
+
+.previous {
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+}
+
+.previousHorizontal {
+  left: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.previousVertical {
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.next {
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+}
+
+.nextHorizontal {
+  right: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nextVertical {
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.icon {
+  height: 1rem;
+  width: 1rem;
+} 

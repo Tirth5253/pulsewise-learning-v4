@@ -1,0 +1,50 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  word-break: break-word;
+  font-size: 0.875rem;
+  color: #6b7280; /* text-muted-foreground */
+}
+@media (min-width: 640px) {
+  .list {
+    gap: 0.625rem;
+  }
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.link {
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.link:hover {
+  color: #111827; /* text-foreground */
+}
+
+.page {
+  font-weight: 400;
+  color: #111827; /* text-foreground */
+}
+
+.separator > svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.ellipsis {
+  display: flex;
+  height: 2.25rem;
+  width: 2.25rem;
+  align-items: center;
+  justify-content: center;
+}
+.ellipsisIcon {
+  height: 1rem;
+  width: 1rem;
+} 

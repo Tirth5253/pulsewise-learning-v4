@@ -1,0 +1,61 @@
+.toaster {
+  --toaster-bg: hsl(var(--background));
+  --toaster-border: hsl(var(--border));
+  --toaster-text: hsl(var(--foreground));
+  --toaster-success: hsl(var(--success));
+  --toaster-error: hsl(var(--destructive));
+  --toaster-warning: hsl(var(--warning));
+  --toaster-info: hsl(var(--info));
+}
+
+.actionButton {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.cancelButton {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+.closeButton {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+.description {
+  color: hsl(var(--muted-foreground));
+}
+
+.error {
+  background-color: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+}
+
+.icon {
+  color: hsl(var(--foreground));
+}
+
+.loader {
+  background-color: hsl(var(--primary));
+}
+
+.success {
+  background-color: hsl(var(--success));
+  color: hsl(var(--success-foreground));
+}
+
+.title {
+  color: hsl(var(--foreground));
+}
+
+.toast {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+
+.warning {
+  background-color: hsl(var(--warning));
+  color: hsl(var(--warning-foreground));
+} 

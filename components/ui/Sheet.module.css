@@ -1,0 +1,306 @@
+.sheetOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  background-color: rgb(0 0 0 / 0.8);
+}
+
+.sheetOverlay[data-state="open"] {
+  animation: sheet-fade-in 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sheetOverlay[data-state="closed"] {
+  animation: sheet-fade-out 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sheetVariants {
+  position: fixed;
+  z-index: 50;
+  gap: 1rem;
+  background-color: hsl(var(--background));
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: ease-in-out;
+}
+
+.sheetVariants[data-state="open"] {
+  animation: sheet-in 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sheetVariants[data-state="closed"] {
+  animation: sheet-out 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sheetVariantsTop {
+  top: 0;
+  right: 0;
+  left: 0;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.sheetVariantsTop[data-state="closed"] {
+  animation-name: slide-out-to-top;
+}
+
+.sheetVariantsTop[data-state="open"] {
+  animation-name: slide-in-from-top;
+}
+
+.sheetVariantsBottom {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.sheetVariantsBottom[data-state="closed"] {
+  animation-name: slide-out-to-bottom;
+}
+
+.sheetVariantsBottom[data-state="open"] {
+  animation-name: slide-in-from-bottom;
+}
+
+.sheetVariantsLeft {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 75%;
+  border-right: 1px solid hsl(var(--border));
+}
+
+.sheetVariantsLeft[data-state="closed"] {
+  animation-name: slide-out-to-left;
+}
+
+.sheetVariantsLeft[data-state="open"] {
+  animation-name: slide-in-from-left;
+}
+
+@media (min-width: 640px) {
+  .sheetVariantsLeft {
+    max-width: 24rem;
+  }
+}
+
+.sheetVariantsRight {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 75%;
+  border-left: 1px solid hsl(var(--border));
+}
+
+.sheetVariantsRight[data-state="closed"] {
+  animation-name: slide-out-to-right;
+}
+
+.sheetVariantsRight[data-state="open"] {
+  animation-name: slide-in-from-right;
+}
+
+@media (min-width: 640px) {
+  .sheetVariantsRight {
+    max-width: 24rem;
+  }
+}
+
+.sheetClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 0.125rem;
+  opacity: 0.7;
+  ring-offset-background: ring-offset-background;
+  transition: opacity;
+}
+
+.sheetClose:hover {
+  opacity: 1;
+}
+
+.sheetClose:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: hsl(var(--ring));
+  ring-offset: 2px;
+}
+
+.sheetClose:disabled {
+  pointer-events: none;
+}
+
+.sheetClose[data-state="open"] {
+  background-color: hsl(var(--secondary));
+}
+
+.x {
+  height: 1rem;
+  width: 1rem;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sheetHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .sheetHeader {
+    text-align: left;
+  }
+}
+
+.sheetFooter {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+@media (min-width: 640px) {
+  .sheetFooter {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+}
+
+.sheetTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.sheetDescription {
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+}
+
+@keyframes sheet-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sheet-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sheet-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes slide-out-to-top {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-in-from-top {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out-to-bottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out-to-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-in-from-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-to-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+} 

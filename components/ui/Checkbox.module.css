@@ -1,0 +1,36 @@
+.root {
+  height: 1rem;
+  width: 1rem;
+  flex-shrink: 0;
+  border-radius: 0.125rem;
+  border: 1px solid #6366f1; /* border-primary */
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.root:focus-visible {
+  outline: none;
+  ring: 2px solid #6366f1; /* focus-visible:ring-2 focus-visible:ring-ring */
+  ring-offset: 2px;
+  ring-offset-color: #fff; /* ring-offset-background */
+}
+.root:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.root[data-state="checked"] {
+  background: #6366f1; /* bg-primary */
+  color: #fff; /* text-primary-foreground */
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+}
+
+.check {
+  height: 1rem;
+  width: 1rem;
+} 

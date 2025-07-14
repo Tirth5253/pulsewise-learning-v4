@@ -1,0 +1,72 @@
+.toggleVariants {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  ring-offset-background: ring-offset-background;
+  transition: colors;
+  gap: 0.5rem;
+}
+
+.toggleVariants:hover {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+}
+
+.toggleVariants:focus-visible {
+  outline: none;
+  ring: 2px;
+  ring-color: hsl(var(--ring));
+  ring-offset: 2px;
+}
+
+.toggleVariants:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.toggleVariants[data-state="on"] {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.toggleVariants svg {
+  pointer-events: none;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.toggleVariantsDefault {
+  background-color: transparent;
+}
+
+.toggleVariantsOutline {
+  border: 1px solid hsl(var(--input));
+  background-color: transparent;
+}
+
+.toggleVariantsOutline:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.toggleVariantsSizeDefault {
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  min-width: 2.5rem;
+}
+
+.toggleVariantsSizeSm {
+  height: 2.25rem;
+  padding: 0 0.625rem;
+  min-width: 2.25rem;
+}
+
+.toggleVariantsSizeLg {
+  height: 2.75rem;
+  padding: 0 1.25rem;
+  min-width: 2.75rem;
+} 

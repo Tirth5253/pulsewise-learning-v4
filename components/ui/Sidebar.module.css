@@ -1,0 +1,24 @@
+.sidebarVariants {
+  /* Base styles */
+}
+
+.sidebarVariantsDefault {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+}
+
+.sidebarVariantsOutline {
+  border: 1px solid hsl(var(--border));
+}
+
+.sidebarVariantsSizeDefault {
+  padding: 1rem;
+}
+
+.sidebarVariantsSizeSm {
+  padding: 0.5rem;
+}
+
+.sidebarVariantsSizeLg {
+  padding: 1.5rem;
+} 

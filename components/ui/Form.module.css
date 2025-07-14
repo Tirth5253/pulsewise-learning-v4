@@ -1,0 +1,18 @@
+.item {
+  row-gap: 0.5rem;
+}
+
+.labelError {
+  color: #ef4444; /* text-destructive */
+}
+
+.description {
+  font-size: 0.875rem;
+  color: #6b7280; /* text-muted-foreground */
+}
+
+.message {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #ef4444; /* text-destructive */
+} 

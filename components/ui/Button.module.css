@@ -1,0 +1,121 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* gap-2 */
+  white-space: nowrap;
+  border-radius: 0.375rem; /* rounded-md */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  transition: color 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  position: relative;
+  line-height: 1.5;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--ring, #6366f1);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--ring, #6366f1), 0 0 0 4px var(--ring-offset-background, #fff);
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.default {
+  background: hsl(var(--primary, 0 0% 9%));
+  color: hsl(var(--primary-foreground, 0 0% 98%));
+  border: none;
+}
+.default:hover {
+  background: hsl(var(--primary, 0 0% 9%)/0.9);
+}
+
+.destructive {
+  background: hsl(var(--destructive, 0 84.2% 60.2%));
+  color: hsl(var(--destructive-foreground, 0 0% 98%));
+  border: none;
+}
+.destructive:hover {
+  background: hsl(var(--destructive, 0 84.2% 60.2%)/0.9);
+}
+
+.outline {
+  border: 1px solid hsl(var(--input, 0 0% 89.8%));
+  background: hsl(var(--background, 0 0% 100%));
+  color: inherit;
+}
+.outline:hover {
+  background: hsl(var(--accent, 0 0% 96.1%));
+  color: hsl(var(--accent-foreground, 0 0% 9%));
+}
+
+.secondary {
+  background: hsl(var(--secondary, 0 0% 96.1%));
+  color: hsl(var(--secondary-foreground, 0 0% 9%));
+  border: none;
+}
+.secondary:hover {
+  background: hsl(var(--secondary, 0 0% 96.1%)/0.8);
+}
+
+.ghost {
+  background: transparent;
+  color: inherit;
+  border: none;
+}
+.ghost:hover {
+  background: hsl(var(--accent, 0 0% 96.1%));
+  color: hsl(var(--accent-foreground, 0 0% 9%));
+}
+
+.link {
+  background: none;
+  color: hsl(var(--primary, 0 0% 9%));
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
+.default, .destructive, .outline, .secondary, .ghost, .link {
+  min-height: 2.5rem; /* h-10 */
+  padding: 0 1rem; /* px-4 */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem;
+}
+
+.sm {
+  min-height: 2.25rem; /* h-9 */
+  border-radius: 0.375rem; /* rounded-md */
+  padding: 0 0.75rem; /* px-3 */
+}
+
+.lg {
+  min-height: 2.75rem; /* h-11 */
+  padding: 0 2rem; /* px-8 */
+}
+
+.icon {
+  min-height: 2.5rem; /* h-10 */
+  width: 2.5rem; /* w-10 */
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button svg {
+  pointer-events: none;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+} 

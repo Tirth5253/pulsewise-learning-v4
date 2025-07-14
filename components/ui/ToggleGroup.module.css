@@ -1,0 +1,35 @@
+.toggleGroupVariants {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.toggleGroupVariantsDefault {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.toggleGroupVariantsOutline {
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.toggleGroupVariantsSizeDefault {
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+}
+
+.toggleGroupVariantsSizeSm {
+  height: 2rem;
+  padding: 0 0.5rem;
+  font-size: 0.75rem;
+}
+
+.toggleGroupVariantsSizeLg {
+  height: 3rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+} 
