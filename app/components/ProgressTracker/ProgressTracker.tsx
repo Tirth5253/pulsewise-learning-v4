@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
+import styles from "./ProgressTracker.module.css"
 
 interface Subject {
   id: string
@@ -24,6 +25,7 @@ interface ProgressTrackerProps {
   subjects: Subject[]
   lessons: Lesson[]
   currentSubjectId?: string
+  variant?: string
 }
 
 interface SubjectProgress {
@@ -32,7 +34,7 @@ interface SubjectProgress {
   percentage: number
 }
 
-export default function ProgressTracker({ subjects, lessons, currentSubjectId }: ProgressTrackerProps) {
+export default function ProgressTracker({ subjects, lessons, currentSubjectId, variant }: ProgressTrackerProps) {
   const [subjectProgress, setSubjectProgress] = useState<Record<string, SubjectProgress>>({})
 
   useEffect(() => {
@@ -84,15 +86,15 @@ export default function ProgressTracker({ subjects, lessons, currentSubjectId }:
     if (!progress) return null
 
     return (
-      <div className="subject-progress">
-        <div className="subject-meta">
-          <span>
+      <div className={variant === "card" ? styles.cardProgress : styles.subjectProgress}>
+        <div className={variant === "card" ? styles.cardMeta : styles.subjectMeta}>
+          <span className={variant === "card" ? styles.cardLessonCount : styles.lessonCount}>
             {progress.completedLessons} of {progress.totalLessons} lessons completed
           </span>
-          <span className="progress-percentage">{progress.percentage}%</span>
+          <span className={variant === "card" ? styles.cardProgressPercentage : styles.progressPercentage}>{progress.percentage}%</span>
         </div>
-        <div className="progress-bar">
-          <div className="progress-fill" style={{ width: `${progress.percentage}%` }}></div>
+        <div className={variant === "card" ? styles.cardProgressBar : styles.progressBar}>
+          <div className={variant === "card" ? styles.cardProgressFill : styles.progressFill} style={{ width: `${progress.percentage}%` }}></div>
         </div>
       </div>
     )
@@ -106,13 +108,13 @@ export default function ProgressTracker({ subjects, lessons, currentSubjectId }:
         if (!progress) return null
 
         return (
-          <div key={subject.id} className="subject-progress-item">
-            <div className="subject-meta">
-              <span className="lesson-count">{progress.totalLessons} lessons</span>
-              <span className="progress-percentage">{progress.percentage}%</span>
+          <div key={subject.id} className={variant === "card" ? styles.cardProgressItem : styles.subjectProgressItem}>
+            <div className={variant === "card" ? styles.cardMeta : styles.subjectMeta}>
+              <span className={variant === "card" ? styles.cardLessonCount : styles.lessonCount}>{progress.totalLessons} lessons</span>
+              <span className={variant === "card" ? styles.cardProgressPercentage : styles.progressPercentage}>{progress.percentage}%</span>
             </div>
-            <div className="progress-bar">
-              <div className="progress-fill" style={{ width: `${progress.percentage}%` }}></div>
+            <div className={variant === "card" ? styles.cardProgressBar : styles.progressBar}>
+              <div className={variant === "card" ? styles.cardProgressFill : styles.progressFill} style={{ width: `${progress.percentage}%` }}></div>
             </div>
           </div>
         )

@@ -62,6 +62,7 @@ export default async function LearningPage() {
                 <ProgressTracker
                   subjects={[subject]}
                   lessons={data.lessons.filter((l) => l.subjectId === subject.id)}
+                  variant="card"
                 />
               </div>
             </Card>

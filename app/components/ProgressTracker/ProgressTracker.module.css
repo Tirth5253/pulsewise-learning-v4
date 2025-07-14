@@ -62,3 +62,62 @@
 .subjectProgressItem {
   display: contents;
 }
+
+/* Card variant styles for ProgressTracker */
+.cardProgress {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+}
+.cardLessonCount {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+  text-align: left;
+}
+.cardProgressPercentage {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 1.05rem;
+  text-align: right;
+}
+.cardProgressBar {
+  width: inherit !important;
+  margin-left: auto;
+  margin-right: auto;
+  height: 12px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+}
+.cardProgressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  border-radius: 6px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+.cardProgressFill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  animation: shimmer 2s infinite;
+  border-radius: 6px;
+}
+.cardProgressItem {
+  display: block;
+}

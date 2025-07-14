@@ -32,7 +32,7 @@
 
 .subjectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* was 320px, now 380px for wider cards */
   gap: 2.5rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -58,6 +58,9 @@
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 440px; /* new: limit max width for consistency */
+  min-height: 320px; /* new: reduce min height for less tall cards */
+  margin: 0 auto; /* center cards in grid cell */
 }
 
 .subjectCard:hover {
@@ -121,7 +124,6 @@
 }
 
 .subjectMeta {
-  display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
@@ -191,5 +193,7 @@
 
   .subjectCard {
     padding: 2rem;
+    max-width: 100%; /* allow full width on mobile */
+    min-height: 220px; /* reduce min height further on mobile */
   }
 }
