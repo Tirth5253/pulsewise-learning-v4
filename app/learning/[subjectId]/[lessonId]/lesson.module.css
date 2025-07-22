@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem; /* Increase this value from 1.5rem to 3rem (or as much as you want) */
   padding: 1.5rem 2rem;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(20px);
@@ -43,10 +43,8 @@
 .progressContainer {
   margin-bottom: 2rem;
   padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
+  /* background: rgba(255, 255, 255, 0.9); */
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -160,7 +158,7 @@
 /* Version 1: Tight, grouped look */
 .centeredHeaderContainer480 {
   max-width: 900px;
-  margin: 0 auto 0rem auto;
+  margin: 0 auto 7rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
