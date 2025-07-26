@@ -2,18 +2,18 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  color: #64748b;
+  color: #5e5eac;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 2rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 1rem 1.5rem;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.9);
+  background: transparent;
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(226, 232, 240, 0.6);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  /* border: 1px solid rgba(226, 232, 240, 0.6); */
+  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); */
   position: relative;
   overflow: hidden;
   width: auto; /* Ensure width is only as wide as content */

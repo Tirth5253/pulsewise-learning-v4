@@ -129,18 +129,17 @@ export default function LessonClient({
       />
 
       <div className={styles.mainContent}>
-        <BackButton href={`/learning/${subjectId}`} label="Back to Lessons" />
+        <BackButton href={`/learning/${subjectId}`} className={styles.backButton} label="Back to Lessons" />
 
-        {/* Toggle between 480px and 540px width by changing the className below: */}
         <div className={styles.centeredHeaderContainer480}>
           {/* <div className={styles.centeredHeaderContainer540}> */}
           <div className={styles.lessonHeader}>
             <h1 className={styles.lessonTitle}>{lesson.title}</h1>
-            <div className={styles.progressInfo}>
+            {/* <div className={styles.progressInfo}>
               <span>
                 {currentCard} of {cards.length}
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
 

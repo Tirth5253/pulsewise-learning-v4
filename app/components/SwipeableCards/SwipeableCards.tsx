@@ -122,6 +122,7 @@ const SwipeableCard = ({
         isTop ? (e) => handlers.onTouchEnd(card)(e.nativeEvent) : undefined
       }
     >
+      {progressBar && <div className={styles.cardProgressBarWrapper}>{progressBar}</div>}
       <div className={styles.cardHeader}>
         {progressBar}
         <div className={styles.progressImgContainer}>
@@ -138,6 +139,7 @@ const SwipeableCard = ({
       <div className={styles.cardContent}>
         <h3 className={styles.cardTitle}>{card.title}</h3>
         <p className={styles.cardDescription}>{card.description}</p>
+        {lessonProgressInfo && <div className={styles.cardLessonProgressInfoWrapper}>{lessonProgressInfo}</div>}
       </div>
       {isTop && <></>}
       <div className={styles.cardGlow}></div>

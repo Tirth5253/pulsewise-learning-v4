@@ -22,6 +22,8 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 40%;
   left: 50%;
@@ -112,8 +114,6 @@
   margin-top: 3rem;
   position: relative;
   height: 30%;
-  overflow: hidden;
-  pointer-events: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -161,7 +161,6 @@
   justify-content: flex-start;
   position: relative;
   z-index: 1;
-  pointer-events: none;
   text-align: center;
 }
 
@@ -332,13 +331,13 @@
 
 @media (max-width: 768px) {
   .container {
-    padding: 10px;
+    padding: 0rem 10px;
     max-width: 100%;
-    min-height: 400px;
+    min-height: 480px;
   }
 
   .cardStack {
-    height: 420px;
+    height: 480px;
   }
 
   .card {
@@ -363,7 +362,7 @@
 
   .cardHeader {
     height: 25%;
-  }
+  } 
 
   .cardImage {
     width: 100px;
@@ -390,6 +389,15 @@
 
   .swipeRight {
     right: 0.75rem;
+  }
+
+  .cardLessonProgressInfoWrapper {
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
   }
 }
 
