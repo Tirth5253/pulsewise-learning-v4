@@ -18,6 +18,8 @@ interface SwipeableCardsProps {
   onSwipe?: (card: CardData, direction: "left" | "right") => void
   threshold?: number
   className?: string
+  progressBar?: React.ReactNode
+  lessonProgressInfo?: React.ReactNode
 }
 
 interface SwipeableCardProps {
@@ -30,6 +32,8 @@ interface SwipeableCardProps {
   onSwipe?: (card: CardData, direction: "left" | "right") => void
   threshold?: number
   onRemove: () => void
+  progressBar?: React.ReactNode
+  lessonProgressInfo?: React.ReactNode
 }
 
 const SwipeableCard = ({
@@ -42,6 +46,8 @@ const SwipeableCard = ({
   onSwipe,
   threshold,
   onRemove,
+  progressBar,
+  lessonProgressInfo,
 }: SwipeableCardProps) => {
   const [isRemoving, setIsRemoving] = useState(false)
 
@@ -133,6 +139,8 @@ export default function SwipeableCards({
   onSwipe,
   threshold = 100,
   className = "",
+  progressBar,
+  lessonProgressInfo,
 }: SwipeableCardsProps) {
   const [allCards, setAllCards] = useState<CardData[]>([])
   const [visibleCards, setVisibleCards] = useState<CardData[]>([])
@@ -210,6 +218,8 @@ export default function SwipeableCards({
             onSwipe={onSwipe}
             threshold={threshold}
             onRemove={removeTopCard}
+            progressBar={progressBar}
+            lessonProgressInfo={lessonProgressInfo}
           />
         ))}
       </div>

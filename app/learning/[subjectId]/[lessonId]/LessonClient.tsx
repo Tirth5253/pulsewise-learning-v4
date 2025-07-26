@@ -88,6 +88,21 @@ export default function LessonClient({ subjects, lessons, lesson, cards, subject
   const progressPercentage = cards.length > 0 ? Math.round((completedCards / cards.length) * 100) : 0
   const currentCard = Math.min(currentCardIndex + 1, cards.length)
 
+  const progressBar = (
+    <>
+      <div className={styles.progressBar}>
+        <div className={styles.progressFill} style={{ width: `${progressPercentage}%` }}></div>
+      </div>
+      {/* <div className={styles.progressText}>{progressPercentage}% Complete</div> */}
+    </>
+  );
+
+  const lessonProgressInfo = (
+    <div style={{ textAlign: 'center', marginTop: '18px', fontSize: '1rem', color: '#a855f7', fontWeight: 500 }}>
+      {currentCard} of {cards.length}
+    </div>
+  );
+
   return (
     <div className={styles.lessonPage}>
       <Sidebar subjects={subjects} lessons={lessons} currentSubjectId={subjectId} currentLessonId={lessonId} />
@@ -96,7 +111,6 @@ export default function LessonClient({ subjects, lessons, lesson, cards, subject
         <BackButton href={`/learning/${subjectId}`} className={styles.backButton} label="Back to Lessons" />
 
         <div className={styles.centeredHeaderContainer480}>
-        {/* <div className={styles.centeredHeaderContainer540}> */}
           <div className={styles.lessonHeader}>
             <h1 className={styles.lessonTitle}>{lesson.title}</h1>
             {/* <div className={styles.progressInfo}>
@@ -105,13 +119,7 @@ export default function LessonClient({ subjects, lessons, lesson, cards, subject
               </span>
             </div> */}
           </div>
-
-          <div className={styles.progressContainer}>
-            <div className={styles.progressBar}>
-              <div className={styles.progressFill} style={{ width: `${progressPercentage}%` }}></div>
-            </div>
-            <div className={styles.progressText}>{progressPercentage}% Complete</div>
-          </div>
+          {/* Progress bar removed from here */}
         </div>
 
         {completedCards >= cards.length ? (
@@ -125,7 +133,12 @@ export default function LessonClient({ subjects, lessons, lesson, cards, subject
           </div>
         ) : (
           <div className={styles.cardsContainer}>
-            <SwipeableCards cards={cards} onSwipe={handleCardSwipe} />
+            <SwipeableCards
+              cards={cards}
+              onSwipe={handleCardSwipe}
+              progressBar={progressBar}
+              lessonProgressInfo={lessonProgressInfo}
+            />
           </div>
         )}
       </div>

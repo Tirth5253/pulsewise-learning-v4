@@ -3,18 +3,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 500px;
+  min-height: 800px;
   padding: 20px;
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
 .cardStack {
   position: relative;
   width: 100%;
-  height: 540px;
+  height: 800px;
   perspective: 1000px;
   display: flex;
   align-items: center;
@@ -29,8 +29,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  max-width: 380px;
-  height: 500px;
+  max-width: 600px; /* increased from 400px */
+  height: 710px;    /* increased from 530px, keeps ratio */
   background: #ffffff;
   border-radius: 24px;
   cursor: grab;
@@ -120,8 +120,8 @@
 }
 
 .cardImage {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
@@ -133,8 +133,8 @@
 }
 
 .cardImage img {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
   pointer-events: none;
   transition: transform 0.3s ease;
@@ -163,16 +163,16 @@
 }
 
 .cardTitle {
-  font-size: 1.5rem;
+  font-size: 2.3rem;
   font-weight: 700;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 3rem 0;
   color: #1f2937;
   line-height: 1.3;
   user-select: none;
 }
 
 .cardDescription {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #6b7280;
   margin: 0;
   line-height: 1.6;
@@ -340,23 +340,29 @@
   }
 
   .card {
-    height: 380px;
-    max-width: 320px;
+    height: 460px;
+    max-width: 380px;
     touch-action: none;
   }
 
   .cardContent {
-    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 0.5rem 2rem 3.5rem 2rem;
+    height: 100%;
   }
 
   .cardTitle {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    margin-bottom: 0px !important;
   }
 
   .cardDescription {
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.5;
+    
   }
 
   .cardHeader {
@@ -364,13 +370,13 @@
   } 
 
   .cardImage {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
   }
 
   .cardImage img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
 
   .swipeIndicator {
@@ -449,4 +455,62 @@
 
 .card::selection, .card *::selection {
   background: transparent !important;
+}
+
+.progressWrapper {
+  padding: 18px 24px 0 24px;
+  background: #fff;
+  z-index: 2;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.07);
+}
+
+.progressBar {
+  width: 100%;
+  height: 2px !important;
+  background: #f3e8ff;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #a855f7, #c084fc);
+  border-radius: 6px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progressText {
+  font-size: 0.9rem;
+  color: #a855f7;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 4px;
+  margin-top: 2px;
+  opacity: 0.8;
+}
+
+.cardProgressBarWrapper {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 2;
+  padding: 0px 24px;
+}
+
+.cardLessonProgressInfoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  left: 0;
+  bottom: 24px;
+  pointer-events: none;
+  z-index: 2;
 }
