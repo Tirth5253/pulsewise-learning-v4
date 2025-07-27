@@ -514,3 +514,129 @@
   pointer-events: none;
   z-index: 2;
 }
+
+/* Navigation Arrow Buttons */
+.navigationArrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.arrowButton {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(168, 85, 247, 0.2);
+  color: #a855f7;
+  overflow: hidden;
+}
+
+.arrowButton:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 12px 35px rgba(168, 85, 247, 0.3);
+  border-color: rgba(168, 85, 247, 0.4);
+  color: #9333ea;
+}
+
+.arrowButton:active {
+  transform: scale(0.95);
+}
+
+.arrowButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+.arrowButton:disabled:hover {
+  transform: scale(1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.arrowIcon {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.leftArrow:hover .arrowIcon {
+  transform: translateX(-2px);
+}
+
+.rightArrow:hover .arrowIcon {
+  transform: translateX(2px);
+}
+
+.arrowGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: arrowPulse 2s ease-in-out infinite;
+}
+
+.arrowButton:hover .arrowGlow {
+  opacity: 1;
+}
+
+.leftArrow .arrowGlow {
+  animation-delay: 0s;
+}
+
+.rightArrow .arrowGlow {
+  animation-delay: 1s;
+}
+
+@keyframes arrowPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+/* Mobile responsive for arrows */
+@media (max-width: 768px) {
+  .navigationArrows {
+    padding: 0 10px;
+  }
+  
+  .arrowButton {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .arrowIcon {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -342,7 +342,8 @@
   }
 
   .completionMessage {
-    padding: 1.5rem; /* Reduced padding */
+    max-height: 60vh;
+    padding: 2rem; /* Reduced padding */
     margin: 0.5rem 0; /* Reduced margin */
   }
 
