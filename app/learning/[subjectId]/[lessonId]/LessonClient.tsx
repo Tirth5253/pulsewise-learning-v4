@@ -6,6 +6,7 @@ import BackButton from "../../../components/BackButton/BackButton";
 import SwipeableCards, {
   type CardData,
 } from "../../../components/SwipeableCards/SwipeableCards";
+import cardStyles from "../../../components/Card/Card.module.css";
 
 interface Subject {
   id: string;
@@ -53,13 +54,19 @@ export default function LessonClient({
     if (savedProgress) {
       try {
         const progress = JSON.parse(savedProgress);
-        setCompletedCards(progress.completedCards || 0);
-        setCurrentCardIndex(progress.completedCards || 0);
+        if (progress.completedCards >= cards.length) {
+          // If lesson was completed, reset progress to 0
+          setCompletedCards(0);
+          setCurrentCardIndex(0);
+        } else {
+          setCompletedCards(progress.completedCards || 0);
+          setCurrentCardIndex(progress.completedCards || 0);
+        }
       } catch (error) {
         console.error("Error loading progress:", error);
       }
     }
-  }, [lessonId]);
+  }, [lessonId, cards.length]);
 
   const handleCardSwipe = useCallback(
     (card: CardData, direction: "left" | "right") => {
@@ -80,6 +87,7 @@ export default function LessonClient({
 
       // If all cards completed, mark lesson as complete
       if (newCompletedCards >= cards.length) {
+        // Mark lesson as complete in localStorage
         const lessonCompleteKey = `lesson_${lessonId}_completed`;
         localStorage.setItem(lessonCompleteKey, "true");
 
